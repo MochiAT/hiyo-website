@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 1. NAVBAR: Hamburger toggle ──────────────────────── */
   const hamburger = document.querySelector('.navbar__hamburger');
-  const navLinks  = document.querySelector('.navbar__links');
+  const navLinks = document.querySelector('.navbar__links');
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
@@ -108,5 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  /* ── 8. LOTTIE HERO ANIMATION ──────────────────────────── */
+  const lottieContainer = document.getElementById('lottie-logo');
+  if (lottieContainer) {
+    const heroAnimation = lottie.loadAnimation({
+      container: lottieContainer,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: 'assets/HiYo Hero.json'
+    });
+
+    // Play once on hover. Mouseout and re-hover to play again.
+    lottieContainer.addEventListener('mouseenter', () => {
+      heroAnimation.goToAndPlay(0, true);
+    });
+  }
 
 });
