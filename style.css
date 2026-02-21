@@ -669,10 +669,11 @@ ul {
   background: #22C55E
 }
 
-/* Silver chart — real asset */
+/* Silver chart — real asset, same 16:9 ratio as the video container */
 .chart-img {
   width: 100%;
-  height: 220px;
+  height: 0;
+  padding-top: 56.25%;
   background: url('./assets/silver-chart-2025.png') center/cover no-repeat;
   border-radius: 2px;
 }
@@ -690,8 +691,8 @@ ul {
 
 .horse-stickers {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
+  top: 0px;
+  right: 0px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
