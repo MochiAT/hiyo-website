@@ -33,10 +33,11 @@
     </a>
 
     <ul class="navbar__links" id="nav-links">
-      <li><a href="#hero">HOME</a></li>
+      <li><a href="#community">COMMUNITY</a></li>
       <li><a href="#tokenomics">TOKENOMICS</a></li>
       <li><a href="#how-to-buy">HOW TO BUY</a></li>
-      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#spread">DOWNLOADS</a></li>
+      <li class="navbar__link-buy"><a href="#how-to-buy" class="navbar__buy">BUY NOW</a></li>
     </ul>
 
     <div class="navbar__actions">
@@ -89,7 +90,7 @@
                    DEXSCREENER (white, black text) -->
       <div class="hero__buttons">
         <a href="#how-to-buy" class="hero-btn hero-btn--red">GET HI-YO</a>
-        <a href="#" class="hero-btn hero-btn--white">DEXSCREENER</a>
+        <!--<a href="#" class="hero-btn hero-btn--white">DEXSCREENER</a>-->
       </div>
 
     </div>
@@ -110,53 +111,158 @@
         </h2>
       </div>
 
-      <!-- Tweet cards grid, gap 32 -->
-      <div class="community__grid">
+      <!-- Tweet carousel -->
+      <div class="tweet-carousel-wrap">
+        <div class="tweet-carousel" id="tweet-carousel">
 
-        <article class="tweet-card" data-reveal>
-          <div class="tweet-card__header">
-            <div class="tweet-avatar tweet-avatar--red"></div>
-            <div>
-              <p class="tweet-name">Hi-Yo Whale</p>
-              <p class="tweet-handle">@HiYoRider</p>
+          <!-- Tweet 1: @xrpledge -->
+          <article class="tweet-card">
+            <div class="tweet-card__header">
+              <img class="tweet-avatar" src="./assets/XXRP.jpg" alt="XXRP" />
+              <div>
+                <p class="tweet-name">XXRP</p>
+                <p class="tweet-handle">@xrpledge</p>
+              </div>
+              <svg class="tweet-x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </div>
-          </div>
-          <p class="tweet-text">"Just swapped my paper money for $HIYO. The silver standard is back on XRPL! 🚀🐎 #HiYo
-            #XRPL"</p>
-        </article>
-
-        <article class="tweet-card" data-reveal>
-          <div class="tweet-card__header">
-            <div class="tweet-avatar tweet-avatar--red"></div>
-            <div>
-              <p class="tweet-name">Hi-Yo Whale</p>
-              <p class="tweet-handle">@HiYoRider</p>
+            <p class="tweet-text">$HIYO Community is up there with the best on the XRPL.<br><br>No Fud, No Gatekeeping,
+              No Bashing other Projects.<br><br>Listening to the dev @SharpRam on Spaces makes you sleep
+              easy.<br><br>Horse is going HIYOR.</p>
+            <div class="tweet-card__footer">
+              <span class="tweet-date">Jan 13, 2026</span>
+              <a href="https://x.com/xrpledge/status/2011200075532550276" target="_blank" rel="noopener noreferrer"
+                class="tweet-read-more">Read
+                full post →</a>
             </div>
-          </div>
-          <p class="tweet-text">"Just swapped my paper money for $HIYO. The silver standard is back on XRPL! 🚀🐎 #HiYo
-            #XRPL"</p>
-        </article>
+          </article>
 
-        <article class="tweet-card" data-reveal>
-          <div class="tweet-card__header">
-            <div class="tweet-avatar tweet-avatar--red"></div>
-            <div>
-              <p class="tweet-name">Hi-Yo Whale</p>
-              <p class="tweet-handle">@HiYoRider</p>
+          <!-- Tweet 2: @buuvva_ -->
+          <article class="tweet-card">
+            <div class="tweet-card__header">
+              <img class="tweet-avatar" src="./assets/buuvva.jpg" alt="buuvva" />
+              <div>
+                <p class="tweet-name">buuvva</p>
+                <p class="tweet-handle">@buuvva_</p>
+              </div>
+              <svg class="tweet-x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </div>
-          </div>
-          <p class="tweet-text">"Just swapped my paper money for $HIYO. The silver standard is back on XRPL! 🚀🐎 #HiYo
-            #XRPL"</p>
-        </article>
+            <p class="tweet-text">Been a while since we talked about a fresh token but this one looks actually
+              good.<br><br>If this keeps the momentum it's only a matter of time until we kill the zero.<br><br>Well
+              done so far @SharpRam<br><br>Send it HIYO(R) 🫡🚀</p>
+            <div class="tweet-card__footer">
+              <span class="tweet-date">Jan 14, 2026</span>
+              <a href="https://x.com/buuvva_/status/2011532671479136561" target="_blank" rel="noopener noreferrer"
+                class="tweet-read-more">Read
+                full post →</a>
+            </div>
+          </article>
 
+          <!-- Tweet 3: @dcrypto602 -->
+          <article class="tweet-card">
+            <div class="tweet-card__header">
+              <img class="tweet-avatar" src="./assets/DC.jpg" alt="DC" />
+              <div>
+                <p class="tweet-name">DC</p>
+                <p class="tweet-handle">@dcrypto602</p>
+              </div>
+              <svg class="tweet-x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </div>
+            <p class="tweet-text">The narrative is dynamic, that's why I like it.<br><br>With silver running this year,
+              2026 is horse year, bg123 connections, NFA seems to be paying attention to it. @elonmusk is the Lone
+              Ranger. $HIYO</p>
+            <div class="tweet-card__footer">
+              <span class="tweet-date">Jan 15, 2026</span>
+              <a href="https://x.com/dcrypto602/status/2011604223662965117" target="_blank" rel="noopener noreferrer"
+                class="tweet-read-more">Read
+                full post →</a>
+            </div>
+          </article>
+
+          <!-- Tweet 4: @DotMan11111 -->
+          <article class="tweet-card">
+            <div class="tweet-card__header">
+              <img class="tweet-avatar" src="./assets/dot.jpg" alt="dot" />
+              <div>
+                <p class="tweet-name">dot</p>
+                <p class="tweet-handle">@DotMan11111</p>
+              </div>
+              <svg class="tweet-x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </div>
+            <p class="tweet-text">This is what real conviction looks like.<br>Not hype.<br>Not noise.<br><br>Just
+              culture sitting down with inevitability.<br><br>A silver horse.<br>At the same table as the Lone
+              Ranger.<br><br>Nothing forced.<br>It just fits. $HIYO</p>
+            <div class="tweet-card__footer">
+              <span class="tweet-date">Jan 25, 2026</span>
+              <a href="https://x.com/DotMan11111/status/2015515819371815337" target="_blank" rel="noopener noreferrer"
+                class="tweet-read-more">Read full post →</a>
+            </div>
+          </article>
+
+          <!-- Tweet 5: @SharpRam -->
+          <article class="tweet-card">
+            <div class="tweet-card__header">
+              <img class="tweet-avatar" src="./assets/GOLDEN_FLEECE.jpg" alt="Golden Fleece" />
+              <div>
+                <p class="tweet-name">Golden Fleece ☀️</p>
+                <p class="tweet-handle">@SharpRam</p>
+              </div>
+              <svg class="tweet-x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </div>
+            <p class="tweet-text">$HIYO SILVER is a no brainer for the largest XRP meme whale as he has continued buying
+              the dips and is the top holder of HIYO<br><br>so the question is...when will others see what he sees??</p>
+            <div class="tweet-card__footer">
+              <span class="tweet-date">Feb 2, 2026</span>
+              <a href="https://x.com/SharpRam/status/2018369395962024081" target="_blank" rel="noopener noreferrer"
+                class="tweet-read-more">Read
+                full post →</a>
+            </div>
+          </article>
+
+        </div>
       </div>
+
 
       <!-- 3 CTAs: yellow "GET HI-YO" + purple "GET HI-YO" + green "GET HI-YO"
            Each: Bangers 32px, padding [16,48], border 4px black, shadow 8px black -->
       <div class="community__cta" data-reveal>
-        <button class="comic-btn comic-btn--yellow">GET HI-YO</button>
-        <button class="comic-btn comic-btn--purple">GET HI-YO</button>
-        <button class="comic-btn comic-btn--green">GET HI-YO</button>
+        <a href="https://t.co/ieErhtMMW2" target="_blank" rel="noopener noreferrer" class="comic-btn comic-btn--yellow"
+          title="Telegram">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z" />
+          </svg>
+        </a>
+        <a href="https://x.com/HiYo_Silver_XRP" target="_blank" rel="noopener noreferrer"
+          class="comic-btn comic-btn--purple" title="X (Twitter)">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+        <a href="https://dexscreener.com/xrpl/4849594f00000000000000000000000000000000.ru5wzycbz2wht51sldv12vuhtcsqjn9631_xrp"
+          target="_blank" rel="noopener noreferrer" class="comic-btn comic-btn--green" title="Dexscreener">
+          <svg width="36" height="36" viewBox="0 0 250 250" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M146.515 89.055C154.163 85.2417 163.894 79.6283 173.636 71.9375C175.69 76.2033 175.915 79.9258 174.857 82.9317C174.107 85.05 172.694 86.8925 170.835 88.3583C168.823 89.9425 166.309 91.0958 163.531 91.7192C158.259 92.9067 152.104 92.2133 146.515 89.055ZM147.841 128.127L157.964 133.974C137.294 145.559 131.675 167.071 125 188.023C118.326 167.071 112.706 145.559 92.0369 133.974L102.16 128.127C103.14 127.757 103.977 127.086 104.551 126.211C105.126 125.336 105.409 124.302 105.36 123.256C104.433 103.633 109.731 94.9558 116.878 89.5075C119.441 87.5558 122.239 86.5758 125 86.5758C127.761 86.5758 130.559 87.5558 133.124 89.5075C140.27 94.9558 145.569 103.633 144.641 123.256C144.592 124.302 144.875 125.336 145.45 126.211C146.025 127.086 146.862 127.757 147.841 128.127ZM125 0C136.702 0.314167 148.433 2.58583 158.614 7.005C165.664 10.0692 172.242 14.1167 178.199 18.9567C180.889 21.1417 183.104 23.2525 185.544 25.6825C192.124 25.91 201.742 18.5992 206.207 11.7583C198.523 36.95 163.458 66.6992 139.182 78.0825C139.172 78.0783 139.165 78.0725 139.158 78.0675C134.801 74.7408 129.901 73.0775 125 73.0775C120.099 73.0775 115.2 74.7408 110.844 78.0675C110.836 78.0717 110.829 78.0792 110.819 78.0825C86.5428 66.6992 51.4786 36.95 43.7944 11.7583C48.2586 18.5992 57.8761 25.91 64.4569 25.6825C66.8978 23.2533 69.1128 21.1417 71.8019 18.9567C77.7586 14.1167 84.3369 10.0692 91.3869 7.005C101.569 2.58583 113.299 0.314167 125 0ZM103.485 89.055C95.8386 85.2417 86.1069 79.6283 76.3653 71.9375C74.3111 76.2033 74.0861 79.9258 75.1436 82.9317C75.8944 85.05 77.3078 86.8925 79.1653 88.3583C81.1786 89.9425 83.6919 91.0958 86.4703 91.7192C91.7419 92.9067 97.8961 92.2133 103.485 89.055Z" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M184.306 62.5148C189.669 57.1023 194.395 51.1115 198.195 45.7656L200.125 49.3981C206.338 61.829 209.567 74.2098 209.567 88.1431L209.553 110.253L209.67 121.715C210.12 149.853 216.208 178.322 230 204.376L201.144 181.107L180.727 214.24L159.277 194.047L125 249.671L90.7233 194.048L69.2742 214.241L48.8567 181.108L20 204.376C33.7917 178.323 39.88 149.854 40.3308 121.716L40.4475 110.254L40.4342 88.144C40.4342 74.2098 43.6617 61.829 49.8767 49.399L51.8058 45.7665C55.6058 51.1123 60.3308 57.1023 65.695 62.5156L64.02 65.9948C60.7658 72.7523 59.6883 80.3081 62.2233 87.494C63.8575 92.1223 66.84 96.0915 70.685 99.1215C74.4183 102.064 78.8367 104.047 83.4625 105.089C86.4758 105.767 89.5458 106.046 92.5958 105.951C91.8842 109.986 91.5733 114.17 91.5533 118.433L64.3333 134.155L85.3383 145.929C87.0172 146.87 88.6154 147.949 90.1167 149.153C107.434 164.701 117.846 210.699 125.001 233.166C132.157 210.699 142.568 164.701 159.886 149.153C161.387 147.948 162.985 146.87 164.664 145.929L185.669 134.155L158.448 118.433C158.428 114.17 158.117 109.986 157.406 105.951C160.456 106.046 163.526 105.767 166.539 105.089C171.165 104.047 175.584 102.064 179.317 99.1215C183.161 96.0915 186.144 92.1223 187.777 87.494C190.313 80.3081 189.235 72.7531 185.982 65.9948L184.307 62.5148L184.306 62.5148Z" />
+          </svg>
+        </a>
       </div>
 
     </div>
@@ -364,7 +470,7 @@
       <!-- CTA: fill #E21D26, Bangers 32px white, padding [24,64],
            border 4px black, shadow 8px black -->
       <div class="how__cta" data-reveal>
-        <button class="how__cta-btn">JOIN THE RIDE TO MOON!</button>
+        <button class="how__cta-btn navbar__buy">BUY NOW</button>
       </div>
 
     </div>
@@ -390,7 +496,7 @@
         <!-- Circle: fill #F5E625, 256×256, radius 128, border 4px black, shadow 4px black -->
         <div class="kit-circle">
           <span class="material-symbols-outlined kit-circle__icon">folder_zip</span>
-          <span class="kit-circle__zip">.ZIP!</span>
+          <span class="kit-circle__zip">.ZIP</span>
         </div>
 
         <div class="kit-content">
@@ -398,10 +504,10 @@
           <p class="kit-content__desc">Get all the Hi-Yo assets you need to shill in style. Logos, mascots, stickers,
             and more.
             Support community growth and unleash your imagination with the Hi-Yo touch.</p>
-          <button id="dl-kit" class="kit-content__btn">
+          <a href="./assets/hiyo-design-resources.zip" download id="dl-kit" class="kit-content__btn">
             <span class="material-symbols-outlined">download</span>
             DOWNLOAD ASSETS
-          </button>
+          </a>
         </div>
       </div>
 
@@ -414,11 +520,12 @@
       <div class="banners-grid" data-reveal>
 
         <div class="banner-card">
-          <div class="banner-thumb" style="background:#E21D26;">
-            <span class="banner-thumb__text" style="color:#fff;transform:rotate(-5deg);">HI-YO</span>
+          <div class="banner-thumb">
+            <img src="./assets/hiyo-x-casino-society-banner.png" alt="Hi-Yo X Casino Society Banner"
+              style="width:100%; height:100%; object-fit: cover;">
           </div>
-          <h4 class="banner-card__title">Red Stampede</h4>
-          <button class="btn-dl">Download Banner</button>
+          <h4 class="banner-card__title">Hi-Yo X Casino Society</h4>
+          <a href="./assets/hiyo-x-casino-society-banner.png" download class="btn-dl">Download Banner</a>
         </div>
 
         <div class="banner-card">
@@ -462,20 +569,52 @@
 
     <div class="footer__socials">
       <!-- Circle 48×48, border 2px rgba(255,255,255,0.2), radius 50% -->
-      <a href="#" class="social-btn" aria-label="X / Twitter">
+      <a href="https://x.com/HiYo_Silver_XRP" class="social-btn" target="_blank" rel="noopener noreferrer"
+        aria-label="X / Twitter">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path
             d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       </a>
-      <a href="#" class="social-btn" aria-label="Telegram">
+      <a href="https://t.co/ieErhtMMW2" class="social-btn" target="_blank" rel="noopener noreferrer"
+        aria-label="Telegram">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path
-            d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z" />
         </svg>
       </a>
     </div>
   </footer>
+
+  <!-- ── BUY NOW MODAL ──────────────────────────────────── -->
+  <div id="buy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <h3 id="modal-title" class="modal-title">WHERE TO BUY <span class="modal-title--red">$HIYO</span></h3>
+      <p class="modal-subtitle">Choose your preferred DEX to swap</p>
+      <div class="modal-btns">
+        <a href="https://horizonxrpl.com/token/4849594F00000000000000000000000000000000:rU5wZyCbZ2WhT51SLDV12vUHtcsqJn9631"
+          target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn--yellow">Horizon</a>
+        <a href="https://firstledger.net/token-v2/rU5wZyCbZ2WhT51SLDV12vUHtcsqJn9631/4849594F00000000000000000000000000000000"
+          target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn--purple">FirstLedger</a>
+        <a href="https://xmagnetic.org/dex/HIYO+rU5wZyCbZ2WhT51SLDV12vUHtcsqJn9631_XRP+XRP?network=mainnet"
+          target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn--green">Magnetic</a>
+      </div>
+      <div class="modal-footer">
+        <p class="modal-footer__title">Need a compatible wallet? Check out these ones:</p>
+        <div class="wallet-btns">
+          <a href="https://joeywallet.xyz/" target="_blank" rel="noopener noreferrer" class="wallet-btn">Joey Wallet</a>
+          <a href="https://xaman.app/" target="_blank" rel="noopener noreferrer" class="wallet-btn">Xaman Wallet</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div id="toast" class="toast" role="alert" aria-live="polite"></div>
   <script src="main.js"></script>

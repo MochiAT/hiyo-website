@@ -20,6 +20,81 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── 1c. BUY NOW MODAL ─────────────────────────────────── */
+  const buyModal = document.getElementById('buy-modal');
+  const modalClose = document.getElementById('modal-close');
+
+  function openModal() {
+    buyModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    buyModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // All .navbar__buy links trigger the modal instead of scrolling
+  document.querySelectorAll('.navbar__buy').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Close mobile menu if open
+      navLinks && navLinks.classList.remove('open');
+      openModal();
+    });
+  });
+
+  modalClose && modalClose.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  buyModal && buyModal.addEventListener('click', (e) => {
+    if (e.target === buyModal) closeModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ── 1b. TWEET CAROUSEL: infinite loop by cloning cards ── */
+  const carousel = document.getElementById('tweet-carousel');
+  if (carousel) {
+    const cards = Array.from(carousel.children);
+    cards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      carousel.appendChild(clone);
+    });
+
+    // Mobile tap interaction: 1st tap = pause + press, 2nd tap = resume + unpress
+    let activeCard = null;
+
+    carousel.addEventListener('touchend', (e) => {
+      // If user tapped "Read full post", let the link navigate normally
+      if (e.target.closest('.tweet-read-more')) return;
+
+      const card = e.target.closest('.tweet-card');
+      if (!card) return;
+
+      e.preventDefault();
+
+      if (activeCard === card) {
+        // 2nd tap on same card → resume carousel, remove press effect
+        card.classList.remove('tweet-card--pressed');
+        carousel.classList.remove('tweet-carousel--paused');
+        activeCard = null;
+      } else {
+        // 1st tap (or tap on a different card) → pause, apply press
+        if (activeCard) {
+          activeCard.classList.remove('tweet-card--pressed');
+        }
+        card.classList.add('tweet-card--pressed');
+        carousel.classList.add('tweet-carousel--paused');
+        activeCard = card;
+      }
+    }, { passive: false });
+  }
+
   /* ── 2. NAVBAR: Scroll shrink / shadow ────────────────── */
   const navbar = document.querySelector('.navbar');
   window.addEventListener('scroll', () => {
@@ -64,16 +139,22 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => toast.classList.remove('show'), 2500);
   }
 
-  /* ── 5. DOWNLOAD BUTTONS (placeholder) ───────────────── */
-  document.querySelectorAll('.btn-download').forEach(btn => {
-    btn.addEventListener('click', () => {
-      showToast('Assets coming soon! 🚀');
+  /* ── 5. DOWNLOADS ────────────────────────────────────── */
+  const dlKit = document.getElementById('dl-kit');
+  if (dlKit) {
+    dlKit.addEventListener('click', () => {
+      showToast('Downloading resources... 🐎');
     });
-  });
+  }
 
-  document.querySelectorAll('.btn[data-action="download-kit"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      showToast('Branding Kit coming soon! 🎨');
+  // Banners: real links vs placeholders
+  document.querySelectorAll('.btn-dl').forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (el.tagName === 'A') {
+        showToast('Downloading banner... 🐎');
+      } else {
+        showToast('Banners coming soon! 🚀');
+      }
     });
   });
 
