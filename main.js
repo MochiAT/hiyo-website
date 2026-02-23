@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── 8. LOTTIE HERO ANIMATION ──────────────────────────── */
+  /* ── 8. LOTTIE HERO ANIMATION & FIREWORKS ──────────────────────────── */
   const lottieContainer = document.getElementById('lottie-logo');
   if (lottieContainer) {
     const heroAnimation = lottie.loadAnimation({
@@ -253,6 +253,147 @@ document.addEventListener('DOMContentLoaded', () => {
     // Play once on hover. Mouseout and re-hover to play again.
     lottieContainer.addEventListener('mouseenter', () => {
       heroAnimation.goToAndPlay(0, true);
+    });
+
+    // Setup fireworks canvas & text overlay
+    const heroSection = document.getElementById('hero');
+    const fwCanvas = document.createElement('canvas');
+    fwCanvas.style.position = 'absolute';
+    fwCanvas.style.top = '0';
+    fwCanvas.style.left = '0';
+    fwCanvas.style.width = '100%';
+    fwCanvas.style.height = '100%';
+    fwCanvas.style.pointerEvents = 'none';
+    fwCanvas.style.zIndex = '0'; // Behind the logo
+    heroSection.appendChild(fwCanvas);
+
+    const ctx = fwCanvas.getContext('2d');
+    function resizeCanvas() {
+      fwCanvas.width = heroSection.clientWidth;
+      fwCanvas.height = heroSection.clientHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = [];
+    let animId = null;
+    let fadingOut = false;
+
+    // CSS transition on the canvas for a guaranteed linear fade-out
+    fwCanvas.style.transition = 'opacity 1.2s linear';
+
+    function fireworkExplosion(x, y) {
+      for (let i = 0; i < 150; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 12 + 3;
+        particles.push({
+          x: x,
+          y: y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 1,
+          decay: Math.random() * 0.006 + 0.003,
+          size: Math.random() * 3 + 2,
+          color: `hsl(${Math.random() * 50 + 10}, 100%, 60%)`
+        });
+      }
+    }
+
+    function loopFireworks() {
+      // Clean clear each frame — no more exponential destination-out decay
+      ctx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        let p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.15;
+        p.life -= p.decay;
+
+        // Each particle has its own linear opacity from life (1 → 0)
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (p.life <= 0) particles.splice(i, 1);
+      }
+      ctx.globalAlpha = 1;
+
+      if (particles.length > 0) {
+        animId = requestAnimationFrame(loopFireworks);
+      } else if (!fadingOut) {
+        // All particles are gone — trigger CSS linear fade-out on the whole canvas
+        fadingOut = true;
+        fwCanvas.style.opacity = '0';
+
+        // After the CSS transition completes, hard-reset the canvas
+        setTimeout(() => {
+          fwCanvas.style.transition = 'none';
+          fwCanvas.style.opacity = '1';
+          ctx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+          // Re-enable transition for next trigger
+          requestAnimationFrame(() => {
+            fwCanvas.style.transition = 'opacity 1.2s linear';
+            fadingOut = false;
+            animId = null;
+          });
+        }, 1200); // match transition duration
+      }
+    }
+
+    // Overlay text
+    const textDiv = document.createElement('div');
+    textDiv.textContent = 'Year of the fire horse';
+    textDiv.classList.add('firehorse-text');
+    lottieContainer.appendChild(textDiv);
+
+    let isExploding = false;
+
+    lottieContainer.addEventListener('click', () => {
+      // prevent spam clicks
+      if (isExploding) return;
+      isExploding = true;
+
+      const rect = lottieContainer.getBoundingClientRect();
+      const heroRect = heroSection.getBoundingClientRect();
+      const centerX = rect.left - heroRect.left + rect.width / 2;
+      const centerY = rect.top - heroRect.top + rect.height / 2;
+
+      // 6 vivid explosions behind the logo scattered over a wider area
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => {
+          const offsetX = (Math.random() - 0.5) * 350;
+          const offsetY = (Math.random() - 0.5) * 250;
+          fireworkExplosion(centerX + offsetX, centerY + offsetY);
+          if (!animId) loopFireworks();
+        }, i * 180 + Math.random() * 100); // Staggered but slightly random
+      }
+
+      // Show text as the fireworks explode
+      setTimeout(() => {
+        textDiv.style.opacity = '';        // clear any inline style from previous run
+        textDiv.style.transition = '';
+        textDiv.style.animation = '';
+        textDiv.classList.add('show');
+      }, 300);
+
+      // Fade text out linearly (same pattern as canvas) — stop flicker, then smoothly go to 0
+      setTimeout(() => {
+        textDiv.style.animation = 'none';  // freeze flicker at current opacity
+        textDiv.style.transition = 'opacity 1.5s linear';
+        textDiv.style.opacity = '0';
+
+        // After CSS transition completes, clean up
+        setTimeout(() => {
+          textDiv.classList.remove('show');
+          textDiv.style.animation = '';
+          textDiv.style.transition = '';
+          textDiv.style.opacity = '';
+          isExploding = false;
+        }, 1500);
+      }, 2000);
     });
   }
 
