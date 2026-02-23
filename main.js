@@ -158,6 +158,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── 5b. TOKENOMICS INTERACTIVITY ─────────────────────── */
+  const tokRows = document.querySelectorAll('.tok-row');
+  const tokSvg = document.querySelector('.tok__donut-svg');
+  const tokCircles = tokSvg ? tokSvg.querySelectorAll('circle') : [];
+
+  if (tokRows.length && tokSvg) {
+    const resetAll = () => {
+      tokRows.forEach(r => r.classList.remove('active'));
+      tokCircles.forEach(c => c.classList.remove('active'));
+      tokSvg.classList.remove('has-active');
+    };
+
+    const activateId = (id) => {
+      const row = document.querySelector(`.tok-row[data-tok-id="${id}"]`);
+      const circle = tokSvg.querySelector(`circle[data-tok-id="${id}"]`);
+
+      if (row && circle) {
+        const isAlreadyActive = row.classList.contains('active');
+        resetAll();
+        if (!isAlreadyActive) {
+          row.classList.add('active');
+          circle.classList.add('active');
+          tokSvg.classList.add('has-active');
+        }
+      }
+    };
+
+    tokRows.forEach(row => {
+      row.addEventListener('click', (e) => {
+        e.stopPropagation();
+        activateId(row.getAttribute('data-tok-id'));
+      });
+    });
+
+    tokCircles.forEach(circle => {
+      circle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        activateId(circle.getAttribute('data-tok-id'));
+      });
+    });
+
+    // Reset when clicking outside the tok__grid
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.tok__grid')) {
+        resetAll();
+      }
+    });
+  }
+
   /* ── 6. SCROLL REVEAL (lightweight, no deps) ─────────── */
   const revealEls = document.querySelectorAll('[data-reveal]');
 

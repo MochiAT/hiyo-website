@@ -341,76 +341,116 @@
         <div class="tok__title-wrap">
           <h2 class="tok__title">TOKENOMICS</h2>
           <div class="tok__underline"></div>
+          <p class="tok__subtitle">Decentralized by design. While 90.2% of our supply belongs to the community, 9.8% is
+            dedicated to fueling innovation, liquidity, and the ongoing growth of the ecosystem.</p>
         </div>
       </div>
 
       <div class="tok__grid">
 
-        <!-- Donut chart: AI generated, 400×400, rotate -6deg,
-             center hub 128×128 white, border 4px black -->
+        <!-- Donut chart -->
         <div class="tok__donut-wrap" data-reveal>
           <svg class="tok__donut-svg" viewBox="0 0 42 42" aria-label="Token distribution chart">
-            <circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E21D26" stroke-dasharray="50 50"
-              stroke-dashoffset="25" stroke-width="30" />
-            <circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#000000" stroke-dasharray="20 80"
-              stroke-dashoffset="75" stroke-width="30" />
-            <circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#A855F7" stroke-dasharray="10 90"
-              stroke-dashoffset="15" stroke-width="30" />
-            <circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#FACC15" stroke-dasharray="10 90"
-              stroke-dashoffset="5" stroke-width="30" />
-            <circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#e2e8f0" stroke-dasharray="10 90"
-              stroke-dashoffset="95" stroke-width="30" />
+            <!-- Community / Liquidity Pool: 90.2% — red, starts at top (offset 25) -->
+            <circle data-tok-id="community" cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E21D26"
+              stroke-dasharray="90.2 9.8" stroke-dashoffset="25" stroke-width="30" />
+            <!-- Team: 2.5% — black, offset = 25 - 90.2 = -65.2 → 34.8 -->
+            <circle data-tok-id="team" cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#000000"
+              stroke-dasharray="2.5 97.5" stroke-dashoffset="34.8" stroke-width="30" />
+            <!-- Growth: 2.5% — purple, offset = 34.8 - 2.5 = 32.3 -->
+            <circle data-tok-id="growth" cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#A855F7"
+              stroke-dasharray="2.5 97.5" stroke-dashoffset="32.3" stroke-width="30" />
+            <!-- Liquidity Vault: 3% — yellow, offset = 32.3 - 2.5 = 29.8 -->
+            <circle data-tok-id="vault" cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#FACC15"
+              stroke-dasharray="3 97" stroke-dashoffset="29.8" stroke-width="30" />
+            <!-- Treasury/Ops: 1.8% — teal, offset = 29.8 - 3 = 26.8 -->
+            <circle data-tok-id="treasury" cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#14b8a6"
+              stroke-dasharray="1.8 98.2" stroke-dashoffset="26.8" stroke-width="30" />
           </svg>
-          <div class="tok__hub">1B<br>SUPPLY</div>
+          <div class="tok__hub">1.11B<br>SUPPLY</div>
         </div>
 
         <!-- Stats rows -->
         <div class="tok__stats" data-reveal>
 
-          <!-- Row 1: Liquidity Pool — icon red, 50% red -->
-          <div class="tok-row">
+          <!-- Row 1: Community / Liquidity Pool — 90.3% red -->
+          <div class="tok-row" data-tok-id="community">
             <div class="tok-row__icon tok-row__icon--red">
               <span class="material-symbols-outlined">water_drop</span>
             </div>
             <div class="tok-row__content">
               <div class="tok-row__header">
-                <span class="tok-row__name">Liquidity Pool</span>
-                <span class="tok-row__pct tok-row__pct--red">50%</span>
+                <span class="tok-row__name">Community / LP</span>
+                <span class="tok-row__pct tok-row__pct--red">90.2%</span>
               </div>
               <div class="tok-row__bar">
-                <div class="tok-row__fill" style="width:50%;background:#E21D26;"></div>
+                <div class="tok-row__fill" style="width:90.2%;background:#E21D26;"></div>
               </div>
             </div>
           </div>
 
-          <!-- Row 2: Marketing — icon black, 20% black -->
-          <div class="tok-row">
+          <!-- Row 2: Team — 2.5% black -->
+          <div class="tok-row" data-tok-id="team">
             <div class="tok-row__icon tok-row__icon--black">
-              <span class="material-symbols-outlined">campaign</span>
+              <span class="material-symbols-outlined">group</span>
             </div>
             <div class="tok-row__content">
               <div class="tok-row__header">
-                <span class="tok-row__name">Marketing</span>
-                <span class="tok-row__pct tok-row__pct--black">20%</span>
+                <span class="tok-row__name">Team</span>
+                <span class="tok-row__pct tok-row__pct--black">2.5%</span>
               </div>
               <div class="tok-row__bar">
-                <div class="tok-row__fill" style="width:20%;background:#000;"></div>
+                <div class="tok-row__fill" style="width:2.5%;background:#000;"></div>
               </div>
             </div>
           </div>
 
-          <!-- Row 3: Community Airdrops — icon yellow (#FACC15), 10% yellow -->
-          <div class="tok-row">
-            <div class="tok-row__icon tok-row__icon--yellow">
-              <span class="material-symbols-outlined">card_giftcard</span>
+          <!-- Row 3: Growth — 2.5% purple -->
+          <div class="tok-row" data-tok-id="growth">
+            <div class="tok-row__icon"
+              style="background:#A855F7;color:#fff;width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined">trending_up</span>
             </div>
             <div class="tok-row__content">
               <div class="tok-row__header">
-                <span class="tok-row__name">Community Airdrops</span>
-                <span class="tok-row__pct tok-row__pct--yellow">10%</span>
+                <span class="tok-row__name">Growth</span>
+                <span class="tok-row__pct" style="color:#A855F7;">2.5%</span>
               </div>
               <div class="tok-row__bar">
-                <div class="tok-row__fill" style="width:10%;background:#FACC15;"></div>
+                <div class="tok-row__fill" style="width:2.5%;background:#A855F7;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4: Liquidity Vault — 3% yellow -->
+          <div class="tok-row" data-tok-id="vault">
+            <div class="tok-row__icon tok-row__icon--yellow">
+              <span class="material-symbols-outlined">savings</span>
+            </div>
+            <div class="tok-row__content">
+              <div class="tok-row__header">
+                <span class="tok-row__name">Liquidity Vault</span>
+                <span class="tok-row__pct tok-row__pct--yellow">3%</span>
+              </div>
+              <div class="tok-row__bar">
+                <div class="tok-row__fill" style="width:3%;background:#FACC15;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5: Treasury/Ops — 1.7% teal -->
+          <div class="tok-row" data-tok-id="treasury">
+            <div class="tok-row__icon"
+              style="background:#14b8a6;color:#fff;width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined">account_balance</span>
+            </div>
+            <div class="tok-row__content">
+              <div class="tok-row__header">
+                <span class="tok-row__name">Treasury / Ops</span>
+                <span class="tok-row__pct" style="color:#14b8a6;">1.8%</span>
+              </div>
+              <div class="tok-row__bar">
+                <div class="tok-row__fill" style="width:1.8%;background:#14b8a6;"></div>
               </div>
             </div>
           </div>

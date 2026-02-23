@@ -1033,6 +1033,15 @@ ul {
   max-width: 100%;
 }
 
+.tok__subtitle {
+  margin-top: 32px;
+  max-width: 720px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #374151;
+}
+
 .tok__title {
   font-family: var(--font-d);
   font-size: clamp(3rem, 6vw, 4.5rem);
@@ -1068,7 +1077,24 @@ ul {
   border-radius: 50%;
   box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 1);
   transform: rotate(-6deg);
+  transition: transform 0.3s var(--ease);
 }
+
+.tok__donut-svg circle {
+  transition: opacity 0.3s var(--ease), stroke-width 0.3s var(--ease);
+  cursor: pointer;
+}
+
+.tok__donut-svg.has-active circle {
+  opacity: 0.15;
+}
+
+.tok__donut-svg.has-active circle.active {
+  opacity: 1;
+  stroke-width: 32;
+  /* Slightly thicker when active */
+}
+
 
 .tok__hub {
   position: absolute;
@@ -1106,10 +1132,18 @@ ul {
   gap: 24px;
   border-radius: 8px;
   transition: var(--ease);
+  cursor: pointer;
 }
 
 .tok-row:hover {
-  transform: translateX(6px)
+  transform: translate(4px, 4px);
+  box-shadow: var(--s4);
+}
+
+.tok-row.active,
+.tok-row.active:hover {
+  transform: translate(8px, 8px);
+  box-shadow: none;
 }
 
 .tok-row__icon {
