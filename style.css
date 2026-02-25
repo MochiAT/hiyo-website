@@ -1617,11 +1617,13 @@ ul {
 }
 
 .banner-card:hover {
-  transform: translateY(-8px)
+  transform: translate(8px, 8px);
+  box-shadow: none;
 }
 
 .banner-thumb {
-  height: 128px;
+  aspect-ratio: 3 / 1;
+  width: 100%;
   border: var(--b2k);
   display: flex;
   align-items: center;
@@ -1770,7 +1772,55 @@ footer::before {
 @media(max-width:1024px) {
 
   .tok__grid {
-    grid-template-columns: 1fr
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 48px;
+  }
+
+  .tok__donut-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tok__donut-svg {
+    transform: rotate(0deg) !important;
+    transform-origin: center;
+    box-shadow: 0 10px 0 0 #000 !important;
+    margin-inline: auto;
+  }
+
+  .tok__stats {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .tok-row {
+    padding: 16px;
+    gap: 16px;
+    box-shadow: 0 8px 0 0 #000 !important;
+    transform: none !important;
+  }
+
+  .tok-row__name {
+    font-size: 1.25rem;
+  }
+
+  .tok-row__pct {
+    font-size: 1.5rem;
+  }
+
+  .tok-row:hover {
+    transform: translateY(4px) !important;
+    box-shadow: 0 4px 0 0 #000 !important;
+  }
+
+  .tok-row.active,
+  .tok-row.active:hover {
+    transform: translateY(8px) !important;
+    box-shadow: none !important;
   }
 
   .community__grid,
