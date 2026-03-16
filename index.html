@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
   <!-- Lottie Player -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
@@ -333,7 +333,7 @@
        fill: #FFFFFF, padding [96,100], gap 64
        border-bottom 4px black
   ══════════════════════════════════════════ -->
-  <section id="tokenomics">
+  <section id="tokenomics" style="display: none;">
     <div class="container">
 
       <!-- Title: Bangers 72px black, red underline 8px wide 400px -->
@@ -517,6 +517,44 @@
   </section>
 
   <!-- ══════════════════════════════════════════
+       HI-YO RUNNER MINI-GAME
+       fill: #18181B
+  ══════════════════════════════════════════ -->
+  <section id="game-section" style="background: #18181B; padding: 48px clamp(16px,6vw,80px); border-top: 4px solid #000; border-bottom: 4px solid #000;">
+    <div style="max-width:1280px; margin-inline:auto;">
+      <!-- Section heading -->
+      <div style="text-align:center; margin-bottom:24px;">
+        <h2 style="font-family:'Bangers',cursive; font-size:clamp(2rem,5vw,3rem); color:#fff; letter-spacing:.04em; font-weight:400;">
+          HI-YO <span style="color:#E21D26;">RUNNER</span>
+        </h2>
+        <p style="color:#9ca3af; font-size:.85rem; margin-top:6px; font-weight:600;">
+          Dodge the candles · Grab coins for points · Catch the green book for immunity
+        </p>
+      </div>
+
+      <!-- Game canvas wrapper -->
+      <div id="game-container" style="
+        position: relative;
+        width: 100%;
+        height: clamp(320px, 48vh, 520px);
+        background: #18181B;
+        border: 4px solid #000;
+        box-shadow: 8px 8px 0 0 rgba(0,0,0,1);
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 4px;
+      ">
+        <canvas id="game-canvas" style="display:block; width:100%; height:100%;"></canvas>
+      </div>
+
+      <!-- Controls hint -->
+      <p style="text-align:center; color:#52525b; font-size:.75rem; margin-top:10px; font-weight:600; letter-spacing:.06em;">
+        CLICK · TAP · SPACE / ↑ → JUMP
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
        SPREAD THE WORD
        fill: #FFFFFF, padding [80,100], gap 64
        border-top 8px black, layout vertical center
@@ -687,6 +725,7 @@
   </div>
 
   <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+  <script src="game.js"></script>
   <script src="main.js"></script>
 </body>
 

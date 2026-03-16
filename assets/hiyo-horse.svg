@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 145" fill="none">
+
+  <!-- ── TAIL (strands, leftmost) ─────────────────── -->
+  <path d="M54,72 C42,60 28,52 16,44 C10,40 8,32 14,30 C20,28 28,36 36,48 C42,56 50,66 54,72 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M53,76 C40,74 26,70 16,62 C10,57 8,48 14,45 C20,42 30,50 42,62 C47,67 51,73 53,76 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M53,80 C40,82 26,84 16,78 C10,74 8,66 14,62 C20,58 32,66 44,76 C48,79 52,80 53,80 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- ── FAR BACK LEG (extended backward-down) ─────── -->
+  <path d="M66,98 C58,112 48,124 42,132 L50,132 C54,126 60,114 68,100 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- hoof -->
+  <ellipse cx="46" cy="131" rx="6" ry="3.5" fill="white" stroke="#1a1a1a" stroke-width="1.8"/>
+
+  <!-- ── FAR FRONT LEG (reaching forward-down) ─────── -->
+  <path d="M128,96 C124,110 120,122 118,132 L126,132 C128,122 132,110 134,96 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- hoof -->
+  <ellipse cx="122" cy="131" rx="6" ry="3.5" fill="white" stroke="#1a1a1a" stroke-width="1.8"/>
+
+  <!-- ── MAIN BODY ───────────────────────────────────── -->
+  <path d="
+    M 56,64
+    C 50,54 52,40 62,34
+    C 70,28 82,27 95,28
+    C 108,29 120,33 130,40
+    C 138,45 142,53 140,62
+    C 142,72 138,84 128,92
+    C 118,100 104,104 90,102
+    C 76,100 64,94 56,84
+    C 50,77 54,70 56,64 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.8" stroke-linejoin="round"/>
+
+  <!-- ── NEAR BACK LEG (under body, angled back) ───── -->
+  <path d="M72,98 C70,112 68,122 66,132 L74,132 C76,122 78,112 78,98 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- hoof -->
+  <ellipse cx="70" cy="131" rx="6" ry="3.5" fill="white" stroke="#1a1a1a" stroke-width="1.8"/>
+
+  <!-- ── NEAR FRONT LEG (raised high forward) ───────── -->
+  <path d="M136,90 C140,78 148,64 154,52 L160,54 C154,66 146,80 142,92 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- hoof -->
+  <ellipse cx="157" cy="53" rx="6" ry="3.5" transform="rotate(-20,157,53)"
+        fill="white" stroke="#1a1a1a" stroke-width="1.8"/>
+
+  <!-- ── NECK ─────────────────────────────────────────── -->
+  <path d="M128,40 C134,30 144,22 154,20 C162,18 166,22 163,29 C160,36 150,42 140,47 C132,51 126,48 128,40 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- ── MANE (spiky strands flowing back) ─────────── -->
+  <path d="M136,22 C130,10 120,4 114,8 C120,15 122,23 128,30 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M128,26 C120,13 110,7 105,11 C112,18 114,27 122,34 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M121,32 C112,20 103,15 99,19 C106,27 108,36 116,42 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M114,40 C106,30 98,26 95,30 C102,37 104,46 112,50 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- ── HEAD (skull) ───────────────────────────────── -->
+  <path d="M150,18 C157,12 168,11 176,16 C182,21 184,28 181,35 C178,42 170,46 162,46 C154,46 146,42 144,35 C142,28 144,22 150,18 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- ── SNOUT / JAW (extends right) ───────────────── -->
+  <path d="M172,40 C180,38 192,38 198,43 C202,47 200,54 194,55 C186,56 178,52 172,47 C170,44 170,41 172,40 Z"
+        fill="white" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- ── RED EYE MASK ────────────────────────────────── -->
+  <path d="M148,20 C155,15 168,15 176,20 C182,23 184,29 180,33 C176,37 166,37 158,34 C150,31 146,26 148,20 Z"
+        fill="#E21D26"/>
+
+  <!-- ── GRIN / TEETH ───────────────────────────────── -->
+  <!-- Dark lip line -->
+  <path d="M176,46 C180,49 188,50 196,46" stroke="#1a1a1a" stroke-width="2" fill="none"
+        stroke-linecap="round"/>
+  <!-- Teeth block -->
+  <rect x="177" y="46" width="18" height="7" rx="1.5" fill="white" stroke="#1a1a1a" stroke-width="1"/>
+  <!-- Tooth dividers -->
+  <line x1="181.5" y1="46" x2="181.5" y2="53" stroke="#aaa" stroke-width="0.8"/>
+  <line x1="186"   y1="46" x2="186"   y2="53" stroke="#aaa" stroke-width="0.8"/>
+  <line x1="190.5" y1="46" x2="190.5" y2="53" stroke="#aaa" stroke-width="0.8"/>
+  <!-- Lower lip curve -->
+  <path d="M177,53 C181,57 188,57 195,53" stroke="#1a1a1a" stroke-width="1.8" fill="none"
+        stroke-linecap="round"/>
+
+  <!-- ── NOSTRIL ─────────────────────────────────────── -->
+  <ellipse cx="197" cy="45" rx="3" ry="2.2" fill="#888"/>
+
+  <!-- ── EAR (visible above mask) ───────────────────── -->
+  <path d="M163,14 L168,6 L174,14 Z" fill="white" stroke="#1a1a1a" stroke-width="1.5"
+        stroke-linejoin="round"/>
+  <path d="M164,14 L168,8 L173,14 Z" fill="#f9c0c0"/>
+
+</svg>
