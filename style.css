@@ -1068,232 +1068,6 @@ ul {
   transform: rotate(-8deg);
 }
 
-/* ─── TOKENOMICS ──────────────────────────────────────────── */
-#tokenomics {
-  background: #fff;
-  padding: var(--py) clamp(24px, 8vw, var(--px));
-  border-bottom: var(--b4k);
-  position: relative;
-  overflow: hidden;
-}
-
-#tokenomics::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='3' cy='3' r='1.5' fill='%23000000' fill-opacity='0.08'/%3E%3C/svg%3E");
-  mask-image: radial-gradient(circle at bottom right, black, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at bottom right, black, transparent 75%);
-  z-index: 0;
-}
-
-#tokenomics>.container {
-  position: relative;
-  z-index: 1;
-}
-
-.tok__header {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.tok__title-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  max-width: 100%;
-}
-
-.tok__subtitle {
-  margin-top: 32px;
-  max-width: 720px;
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 1.6;
-  color: #374151;
-}
-
-.tok__title {
-  font-family: var(--font-d);
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  text-transform: uppercase;
-  color: #000
-}
-
-.tok__underline {
-  width: 400px;
-  max-width: 100%;
-  height: 8px;
-  background: var(--red)
-}
-
-.tok__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center
-}
-
-/* Donut */
-.tok__donut-wrap {
-  display: flex;
-  justify-content: center;
-  position: relative
-}
-
-.tok__donut-svg {
-  width: clamp(260px, 38vw, 370px);
-  height: auto;
-  border: var(--b4k);
-  border-radius: 50%;
-  box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 1);
-  transform: rotate(-6deg);
-  transition: transform 0.3s var(--ease);
-}
-
-.tok__donut-svg circle {
-  transition: opacity 0.3s var(--ease), stroke-width 0.3s var(--ease);
-  cursor: pointer;
-}
-
-.tok__donut-svg.has-active circle {
-  opacity: 0.15;
-}
-
-.tok__donut-svg.has-active circle.active {
-  opacity: 1;
-  stroke-width: 32;
-  /* Slightly thicker when active */
-}
-
-
-.tok__hub {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  background: #fff;
-  border: var(--b4k);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: var(--font-d);
-  font-size: 1.4rem;
-  line-height: 1.1;
-}
-
-/* Stats */
-.tok__stats {
-  display: flex;
-  flex-direction: column;
-  gap: 24px
-}
-
-.tok-row {
-  background: #fff;
-  border: var(--b4k);
-  box-shadow: var(--s8);
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  border-radius: 8px;
-  transition: var(--ease);
-  cursor: pointer;
-}
-
-.tok-row:hover {
-  transform: translate(4px, 4px);
-  box-shadow: var(--s4);
-}
-
-.tok-row.active,
-.tok-row.active:hover {
-  transform: translate(8px, 8px);
-  box-shadow: none;
-}
-
-.tok-row__icon {
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tok-row__icon--red {
-  background: var(--red);
-  color: #fff
-}
-
-.tok-row__icon--black {
-  background: #000;
-  color: #fff
-}
-
-.tok-row__icon--yellow {
-  background: var(--yellow-fc);
-  color: #000
-}
-
-.tok-row__content {
-  flex: 1
-}
-
-.tok-row__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 8px
-}
-
-.tok-row__name {
-  font-family: var(--font-d);
-  font-size: 1.5rem;
-  text-transform: uppercase
-}
-
-.tok-row__pct {
-  font-family: var(--font-d);
-  font-size: 2rem
-}
-
-.tok-row__pct--red {
-  color: var(--red)
-}
-
-.tok-row__pct--black {
-  color: #000
-}
-
-.tok-row__pct--yellow {
-  color: var(--yellow-fc)
-}
-
-.tok-row__bar {
-  width: 100%;
-  height: 16px;
-  background: var(--gray-mid);
-  border: var(--b2k);
-  overflow: hidden
-}
-
-.tok-row__fill {
-  height: 100%
-}
-
 /* ─── HOW TO BUY ──────────────────────────────────────────── */
 #how-to-buy {
   background: #fff;
@@ -1491,12 +1265,14 @@ ul {
   background: var(--gray-light);
   border: var(--b4k);
   box-shadow: var(--s4);
-  padding: clamp(24px, 5vw, 60px);
-  gap: clamp(24px, 5vw, 64px);
+  padding: clamp(32px, 7vw, 80px);
+  gap: clamp(32px, 6vw, 64px);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
+  text-align: center;
+  width: 90%;
+  margin-inline: auto;
 }
 
 .kit-circle {
@@ -1537,7 +1313,8 @@ ul {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px
+  align-items: center;
+  gap: 20px;
 }
 
 .kit-content__title {
@@ -1597,7 +1374,18 @@ ul {
   display: inline-block;
 }
 
-/* Banners */
+/* Banners — carousel wrapper */
+.banners-carousel {
+  position: relative;
+  width: 96%;
+}
+
+/* Arrows & dots hidden on desktop */
+.banners-carousel__arrow,
+.banners-carousel__dots {
+  display: none;
+}
+
 .banners-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1668,6 +1456,160 @@ ul {
   background: #fff;
   color: #000;
   border-color: #000
+}
+
+/* ─── BANNER LIGHTBOX ─────────────────────────────────────── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  animation: lb-fade-in 0.2s ease;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+@keyframes lb-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: min(900px, 90vw);
+  flex: 1;
+}
+
+/* Wrapper: transparent pass-through on desktop */
+.lightbox__img-wrap {
+  display: contents;
+  /* acts as if it doesn't exist on desktop */
+}
+
+.lightbox__img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 4px solid #fff;
+  box-shadow: 8px 8px 0 #000;
+  display: block;
+}
+
+.lightbox__title {
+  font-family: var(--font-d);
+  font-size: 1.6rem;
+  color: #fff;
+  letter-spacing: .04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Close button */
+.lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--ease);
+  z-index: 1;
+}
+
+.lightbox__close:hover {
+  background: var(--red);
+  color: #fff;
+  border-color: #000;
+}
+
+.lightbox__close .material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* Arrows */
+.lightbox__arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--ease);
+}
+
+.lightbox__arrow:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+.lightbox__arrow:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.lightbox__arrow .material-symbols-outlined {
+  font-size: 30px;
+}
+
+/* Clickable thumb */
+.banner-thumb {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-thumb::after {
+  content: '🔍 CLICK TO VIEW';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: var(--font-d);
+  font-size: 1.2rem;
+  letter-spacing: .08em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.banner-thumb:hover::after {
+  opacity: 1;
+}
+
+/* Mobile nav row hidden by default (shown only in mobile media query) */
+.lightbox__nav-mobile {
+  display: none;
 }
 
 /* ─── FOOTER ──────────────────────────────────────────────── */
@@ -1832,7 +1774,12 @@ footer::before {
   .kit-box {
     flex-direction: column;
     align-items: center;
-    text-align: center
+    text-align: center;
+    padding: clamp(40px, 8vw, 64px);
+  }
+
+  .kit-content {
+    align-items: center;
   }
 }
 
@@ -1887,9 +1834,189 @@ footer::before {
   }
 
   .community__grid,
-  .how__steps,
-  .banners-grid {
+  .how__steps {
     grid-template-columns: 1fr
+  }
+
+  /* ── Mobile banner carousel ──────────────── */
+  #spread {
+    overflow: visible;
+    padding-inline: 0;
+  }
+
+  #spread>.container {
+    padding-inline: 0;
+  }
+
+  /* Re-add padding for non-carousel children */
+  #spread .spread__title-row,
+  #spread .kit-box,
+  #spread .spread__x-label-row {
+    padding-inline: clamp(24px, 8vw, 48px);
+    margin-inline: auto;
+  }
+
+  .banners-carousel {
+    padding-bottom: 56px;
+  }
+
+  .banners-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .banners-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .banners-grid .banner-card {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .banners-grid .banner-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .banners-grid .banner-thumb {
+    border: none;
+    aspect-ratio: 3 / 1;
+    width: 100%;
+  }
+
+  .banners-grid .banner-card__title {
+    font-size: 1.3rem;
+    padding: 8px 16px 0;
+    text-align: center;
+  }
+
+  .banners-grid .btn-dl {
+    margin: 0 24px;
+    width: auto;
+    border-radius: 0;
+    background: var(--red);
+    border: var(--b4k);
+    box-shadow: var(--s4);
+    font-family: var(--font-d);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    padding: 12px 24px;
+  }
+
+  .banners-grid .btn-dl:hover {
+    background: #b81820;
+    color: #fff;
+    border-color: #000;
+  }
+
+  /* Dots */
+  .banners-carousel__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 16px;
+  }
+
+  .banners-carousel__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d1d5db;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: var(--ease);
+  }
+
+  .banners-carousel__dot.active {
+    background: var(--red);
+    transform: scale(1.35);
+  }
+
+  /* ── Mobile lightbox ─────────────────────── */
+  .lightbox {
+    padding: 16px 8px;
+    gap: 8px;
+  }
+
+  .lightbox__close {
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .lightbox__close .material-symbols-outlined {
+    font-size: 18px;
+  }
+
+  .lightbox__content {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  /* Rotated image wrapper: dimensions = visual footprint after 90° rotation */
+  .lightbox__img-wrap {
+    display: block;
+    /* override display:contents from desktop */
+    position: relative;
+    width: calc(80vh / 3);
+    /* visual width = banner height after rotation */
+    height: 80vh;
+    /* visual height = banner width after rotation */
+    overflow: hidden;
+    border: 2px solid #fff;
+    box-shadow: 4px 4px 0 #000;
+    flex-shrink: 0;
+  }
+
+  .lightbox__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80vh;
+    /* CSS width = visual height after rotation */
+    height: calc(80vh / 3);
+    /* CSS height = visual width after rotation */
+    max-width: none;
+    /* override global img { max-width: 100% } */
+    max-height: none;
+    transform: translate(-50%, -50%) rotate(90deg);
+    object-fit: cover;
+    border: none;
+    box-shadow: none;
+  }
+
+  .lightbox__title {
+    font-size: 1.1rem;
+  }
+
+  .lightbox__arrow {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .lightbox__arrow .material-symbols-outlined {
+    font-size: 22px;
+  }
+
+  /* Hide mobile nav row on mobile (not needed since arrows still work) */
+  .lightbox__nav-mobile {
+    display: none;
   }
 
   footer {

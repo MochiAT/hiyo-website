@@ -397,4 +397,156 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── 9. MOBILE BANNERS CAROUSEL — dots sync + autoplay ──── */
+  const bannersGrid = document.getElementById('banners-grid');
+  const dotsWrap = document.getElementById('banner-dots');
+
+  if (bannersGrid && dotsWrap) {
+    const cards = bannersGrid.querySelectorAll('.banner-card');
+    let currentIndex = 0;
+    let autoplayTimer = null;
+
+    // Build dot indicators
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'banners-carousel__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Banner ${i + 1}`);
+      dot.addEventListener('click', () => {
+        goToCard(i);
+        resetAutoplay();
+      });
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = dotsWrap.querySelectorAll('.banners-carousel__dot');
+
+    function goToCard(index) {
+      if (index < 0 || index >= cards.length) return;
+      bannersGrid.scrollTo({
+        left: bannersGrid.clientWidth * index,
+        behavior: 'smooth'
+      });
+    }
+
+    function updateDots() {
+      const gridLeft = bannersGrid.scrollLeft;
+      let closest = 0;
+      let minDist = Infinity;
+
+      cards.forEach((card, i) => {
+        const dist = Math.abs(card.offsetLeft - gridLeft);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = i;
+        }
+      });
+
+      currentIndex = closest;
+      dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+    }
+
+    // Sync dots on scroll
+    let scrollTimeout;
+    bannersGrid.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateDots, 60);
+    }, { passive: true });
+
+    // Reset autoplay on manual interaction
+    function resetAutoplay() {
+      clearInterval(autoplayTimer);
+      startAutoplay();
+    }
+
+    // User touch resets timer
+    bannersGrid.addEventListener('touchstart', () => {
+      clearInterval(autoplayTimer);
+    }, { passive: true });
+
+    bannersGrid.addEventListener('touchend', () => {
+      resetAutoplay();
+    }, { passive: true });
+
+    // Autoplay: advance every 5s, loop back to start
+    function startAutoplay() {
+      autoplayTimer = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % cards.length;
+        goToCard(nextIndex);
+      }, 5000);
+    }
+
+    // Only start autoplay on mobile
+    const mql = window.matchMedia('(max-width: 768px)');
+    if (mql.matches) startAutoplay();
+    mql.addEventListener('change', (e) => {
+      if (e.matches) startAutoplay();
+      else clearInterval(autoplayTimer);
+    });
+  }
+
+  /* ── 10. BANNER LIGHTBOX ─────────────────────────────────── */
+  const lightbox      = document.getElementById('banner-lightbox');
+  const lbImg         = document.getElementById('lightbox-img');
+  const lbTitle       = document.getElementById('lightbox-title');
+  const lbClose       = document.getElementById('lightbox-close');
+  const lbPrev        = document.getElementById('lightbox-prev');
+  const lbNext        = document.getElementById('lightbox-next');
+
+  if (lightbox && lbImg) {
+    // Collect all banner thumbs
+    const bannerThumbs = Array.from(document.querySelectorAll('.banner-thumb'));
+    let lbIndex = 0;
+
+    function lbOpen(index) {
+      lbIndex = index;
+      const thumb = bannerThumbs[lbIndex];
+      const img   = thumb.querySelector('img');
+      const title = thumb.closest('.banner-card')?.querySelector('.banner-card__title');
+      lbImg.src   = img.src;
+      lbImg.alt   = img.alt;
+      lbTitle.textContent = title ? title.textContent : '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function lbClose_fn() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function lbGoTo(index) {
+      lbIndex = (index + bannerThumbs.length) % bannerThumbs.length;
+      lbOpen(lbIndex);
+    }
+
+    // Click on any thumbnail opens lightbox
+    bannerThumbs.forEach((thumb, i) => {
+      thumb.addEventListener('click', () => lbOpen(i));
+    });
+
+    // Controls
+    lbClose.addEventListener('click', lbClose_fn);
+    lbPrev.addEventListener('click', () => lbGoTo(lbIndex - 1));
+    lbNext.addEventListener('click', () => lbGoTo(lbIndex + 1));
+
+    // Mobile bottom nav buttons
+    const lbPrevMob = document.getElementById('lightbox-prev-mob');
+    const lbNextMob = document.getElementById('lightbox-next-mob');
+    if (lbPrevMob) lbPrevMob.addEventListener('click', () => lbGoTo(lbIndex - 1));
+    if (lbNextMob) lbNextMob.addEventListener('click', () => lbGoTo(lbIndex + 1));
+
+    // Click on backdrop (not content) closes
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lbClose_fn();
+    });
+
+    // Keyboard: Escape closes, arrows navigate
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')      lbClose_fn();
+      if (e.key === 'ArrowLeft')   lbGoTo(lbIndex - 1);
+      if (e.key === 'ArrowRight')  lbGoTo(lbIndex + 1);
+    });
+  }
+
 });
